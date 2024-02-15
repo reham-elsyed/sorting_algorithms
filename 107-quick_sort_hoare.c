@@ -31,24 +31,20 @@ void quick_sort_hoare(int *array, size_t size)
 		return;
 
 	pivot = array[size / 2];
-	i = 0, j = size - 1;
-
-	while (i <= j)
+	for (i = 0; i < pivot - 1; i++)
 	{
-		while (array[i] < pivot)
-			i++;
-		while (array[j] > pivot)
-			j--;
+		for (j = size - 1; j > 0; j--)
+		{
+			if (array[i] > pivot || array[j] < pivot)
+			{
 		if (i <= j)
 		{
-			if (i != j)
 			swap_counter(array, i, j);
-			i++;
-			j--;
+		
 		}
 
 			print_array(array, size);
-	}
+		}}}
 	quick_sort_hoare(array, j + 1);
 	quick_sort_hoare(array + i, size - 1);
 }
