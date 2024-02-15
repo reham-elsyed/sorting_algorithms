@@ -1,13 +1,12 @@
 #include "sort.h"
 /**
- *
- *
- *
- *
+ *insertion_sort_list - function to sort by insertion
+ *@list: input linked list
+ *Return: void
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *n_sorted , *i_sorted, *temp;
+	listint_t *n_sorted, *i_sorted, *temp;
 
 	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
