@@ -1,10 +1,9 @@
 #include "sort.h"
 /**
- *
- *
- *
- *
- *
+ *selection_sort - function to sort array
+ *@array: input array
+ *@size: input number
+ *Return: void
  */
 void selection_sort(int *array, size_t size)
 {
@@ -25,6 +24,7 @@ int temp;
 					array[i] = array[min];
 					array[min] = temp;
 					print_array(array, size);
-		}
+					
+					}
 	}
 }
