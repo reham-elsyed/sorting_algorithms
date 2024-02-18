@@ -1,6 +1,5 @@
 #include "sort.h"
 
-
 /**
  *swap_counter- function to swap
  *@i: input int 1
@@ -8,13 +7,13 @@
  *Return: void
  */
 
-void swap_counter(int *i, int *j)
+void swap_counter(int *array, int i, int j)
 {
-		int temp;
+	int temp;
 
-temp = *i
-*i = *j;
-*j = temp;
+temp = array[i];
+array[i] = array[j];
+array[j] = temp;
 }
 /**
  *partition - function for pas
@@ -22,25 +21,26 @@ temp = *i
  *@size: size
  *@low: input
  *@high: inpyur
- *Return i
+ *Return: i
  */
 int partition(int *array, size_t size,  size_t low, size_t high)
 {
 	size_t i = low;
 	size_t j;
 	int pivot_value = array[high];
-	
-	for (j = 0; j < high; j++)
+
+	for (j = low; j < high; j++)
 	{
 		if (array[j] <= pivot_value)
 		{
-		swap_counter(&array[i], &array[j]);
+		swap_counter(array,i, j);
 		i++;
 		}
-		swap_counter(&array[i], &array[high]);
+	}
+		swap_counter(array, i, high);
 
 	print_array(array, size);
-	}
+	
 return (i);
 }
 /**
@@ -54,24 +54,27 @@ return (i);
 void quick_sort_recursion(int *array, size_t size, size_t low, size_t high)
 {
 	size_t pivot_index;
-	if (high <= low){
+
+	if (high <= low)
+	{
 		return;
 	}
 	else
 	{
-pivot_index = partition(array, size, low, high);
-quick_sort_recursion(array, size, low, pivot_index - 1);
-quick_sort_recursion(array, size, pivot_index + 1, high);
+	pivot_index = partition(array, size, low, high);
+	quick_sort_recursion(array, size, low, pivot_index - 1);
+	quick_sort_recursion(array, size, pivot_index + 1, high);
 }
 }
 /**
  *quick_sort- function to quik sort
+ *@array: input array
  *@size:offd
  */
 void quick_sort(int *array, size_t size)
 {
-	        if (array == NULL || size < 2)
-			return;
+	if (array == NULL || size < 2)
+		return;
 
-		quick_sort_recursion(array, size, 0, size - 1);
+	quick_sort_recursion(array, size, 0, (size - 1));
 }
