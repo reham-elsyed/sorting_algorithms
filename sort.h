@@ -18,7 +18,9 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-
+void quick_sort_recursion(int *array, size_t size, size_t low, size_t high);
+int partition(int *array, size_t size, size_t left, size_t right);
+void swap_counter(int *i, int *j);
 void bubble_sort(int *array, size_t size);
 void print_list(const listint_t *list);
 void print_array(const int *array, size_t size);
